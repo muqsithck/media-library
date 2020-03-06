@@ -10912,6 +10912,10 @@ video {
   transition-duration: 1000ms;
 }
 
+body{
+  background-color: #0a0707;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -52143,3 +52147,5 @@ video {
     transition-duration: 1000ms;
   }
 }
+
+
