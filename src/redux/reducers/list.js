@@ -16,7 +16,7 @@ const familyReducer = (state = initialState, { type, payload }) => {
 
         case 'GET_LIST': {
             return {
-                ...state, list:  [...state.list, payload.content ],
+                ...state, list:[...state.list, ...payload ],
             }
         }
         default:

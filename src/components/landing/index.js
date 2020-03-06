@@ -12,20 +12,17 @@ export default function Index() {
 
   useEffect(() => {
     dispatch(getListStart());
-    // dispatch(getMovieList("PAGE1"));
-
   }, [dispatch]);
 
-  console.log("list:", list);
 
   const loadMore = page => {
-    console.log("page :", page);
-    dispatch(getMovieList("PAGE1"));
+    if(page <= 3){
+    dispatch(getMovieList(page))
+    }
   };
 
   return (
-    <div className="grid grid-cols-3 gap-1">
-      <div className="col-span-3 bg-white">3</div>
+ 
 
           
       <div style={{height:"80vh",overflow:"auto", backgroundColor:'red', width:'100vw'}}>  
@@ -35,7 +32,7 @@ export default function Index() {
         hasMore={isMore}
         loader={
           <div className="loader" key={0}>
-            Loading ...
+            Wait ...
           </div>
         }
         useWindow={false}
@@ -45,6 +42,6 @@ export default function Index() {
 
       </InfiniteScroll>
       </div>
-    </div>
+    
   );
 }
