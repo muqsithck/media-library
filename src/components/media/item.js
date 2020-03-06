@@ -4,7 +4,7 @@ import demo from "../../assets/placeholder_for_missing_posters.png";
 
 export default function Item(props) {
   return (
-    <div className="grid grid-cols-3 gap-1">
+    <div className="grid grid-cols-3 gap-2">
       {props.movieList.length > 0
         ? props.movieList.map((item, index) => {
             let img;
@@ -14,7 +14,7 @@ export default function Item(props) {
               img = require(`../../assets/placeholder_for_missing_posters.png`);
             }
             return (
-              <div key={index} className="col-span-1 bg-white item-wrapper">
+              <div key={index} className="col-span-1 bg-black item-wrapper">
                 <Image
                   effect="blur"
                   height="80%"
@@ -23,8 +23,7 @@ export default function Item(props) {
                   src={img}
                   threshold={1000}
                 />
-
-                {item.name}
+                <p className="media-title">  {item.name} </p>
               </div>
             );
           })

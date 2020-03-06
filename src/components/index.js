@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getMovieList, getListStart } from "../redux/actions/action";
 import { useSelector, useDispatch } from "react-redux";
 import InfiniteScroll from "react-infinite-scroller";
-import Item from "./landing/item";
+import Item from "./media/item"
 import Head from "./head";
 
 export default function Index() {
@@ -46,7 +46,7 @@ export default function Index() {
 
 
   return (
-    <div className="grid grid-cols-3 app-wrapper ">
+    <div className="grid grid-cols-3 app-wrapper">
       <div className="col-span-3">
         <Head search={search} handleChnage={handleChnage} />
       </div>
