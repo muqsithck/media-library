@@ -12,7 +12,7 @@ export default function Index() {
     dispatch(getFirstList());
   }, [dispatch]);
 
-  // Fetch fruit list from redux state(Global State) using 'useSelector'
+  // Fetch list from redux state(Global State) using 'useSelector'
   let reduxList = useSelector(({ list }) => list);
   let mediaList = reduxList.list;
   let loadMore = reduxList.loadMore;
