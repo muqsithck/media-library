@@ -5,19 +5,24 @@ import ImageLoading from "../../assets/placeholder_for_missing_posters.png";
 export default function Item(props) {
   return (
     <div className="grid grid-cols-6 gap-2">
-      {props.movieList.length > 0
-        ? props.movieList.map((item, index) => {
-          
+      {props.mediaList.length > 0
+        ? props.mediaList.map((item, index) => {
+          // Checking if image does exists in local lsit.
           let img;
-            if (item["poster-image"] === "posterthatismissing.jpg" ||  item["poster-image"].length === 0) 
-            {
+            if (
+              item["poster-image"] === "posterthatismissing.jpg" ||
+              item["poster-image"].length === 0
+            ) {
               img = require(`../../assets/placeholder_for_missing_posters.png`);
             } else {
               img = require(`../../assets/${item["poster-image"]}`);
             }
-            
+
             return (
-              <div key={index} className="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1 xl:col-span-1 bg-black media-wrapper">
+              <div
+                key={index}
+                className="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1 xl:col-span-1 bg-black media-wrapper"
+              >
                 <Image
                   effect="blur"
                   width="100%"
@@ -26,7 +31,7 @@ export default function Item(props) {
                   threshold={500}
                 />
                 <div className="ellipsis-text">
-                <p className="media-title">  {item.name} </p>
+                  <p className="media-title"> {item.name} </p>
                 </div>
               </div>
             );

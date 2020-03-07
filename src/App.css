@@ -2,12 +2,12 @@
   height: 100vh;
   overflow: auto;
   padding: 6px;
-  padding-top: 1vh;
+  padding-top: 8vh;
 }
 
 .media-wrapper {
-  height: 28vh;
-  min-height: 100px;
+  height: auto ;
+  min-height: 300px ;
   margin-bottom: 4vh;
 }
 
@@ -56,22 +56,26 @@ input:focus {
 
 
 
+@media only screen and (max-width: 992px) {
+  .media-wrapper {
+  height: auto;
+  min-height: 100px;
+  margin-bottom: 1.5vh;
+  }
 
-@media screen and (max-height: 700px) {
-  .item-wrapper {
+  .app-wrapper{
+    padding-top: 0px;
+  }
+}
+
+/* 
+
+@media only screen and (max-height: 700px) {
+  .media-wrapper {
     height: auto;
     min-height: 100px;
     margin-bottom: 20px;
   }
-}
-
-
-@media only screen and (min-width: 992px) {
-
-  .item-wrapper {
-    height: auto ;
-  }
-
-}
+} */
 
 

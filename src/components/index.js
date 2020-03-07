@@ -1,49 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { getMovieList, getListStart } from "../redux/actions/action";
 import { useSelector, useDispatch } from "react-redux";
 import InfiniteScroll from "react-infinite-scroller";
-import Item from "./media/item"
+import { getMoreList, getFirstList } from "../redux/actions/action"; // Actions
+import Media from "./media/";
 import Head from "./head";
 
 export default function Index() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getListStart());
+    dispatch(getFirstList());
   }, [dispatch]);
 
+  // Fetch fruit list from redux state(Global State) using 'useSelector'
+  let reduxList = useSelector(({ list }) => list);
+  let mediaList = reduxList.list;
+  let loadMore = reduxList.loadMore;
 
-   
-  let list = useSelector(({ list }) => list);
-  let movieList = list.list;
-  let isMore = list.loadMore;
-
-  const [search, setSearch] = useState("")
-  const handleChnage = (e) => {
-    setSearch(e.target.value)
-  }
-
-  if (search.length > 0) {
-    let searchResult = movieList.filter(item =>
-      item.name.toLowerCase().includes(search.toLowerCase())
-    );
-    movieList = searchResult;
-  } else {
-    movieList = list.list;
-  }
- 
-
-
-  const loadMore = page => {
-    if (page <= 3) {
-      dispatch(getMovieList(page));
-    }
+  // Search function
+  const [search, setSearch] = useState("");
+  const handleChnage = e => {
+    setSearch(e.target.value);
   };
 
+  if (search.length > 0) {
+    let searchResult = mediaList.filter(item =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    );
+    mediaList = searchResult;
+  } else {
+    mediaList = reduxList.list;
+  }
 
-  
-  
-
+  // on scroll page loading
+  const loadMoreHandle = page => {
+    if (page <= 3) {
+      dispatch(getMoreList(page));
+    }
+  };
 
   return (
     <div className="grid grid-cols-3 app-wrapper">
@@ -53,16 +47,16 @@ export default function Index() {
       <div className="col-span-3">
         <InfiniteScroll
           pageStart={0}
-          loadMore={loadMore}
-          hasMore={isMore}
+          loadMore={loadMoreHandle}
+          hasMore={loadMore}
           loader={
             <div className="loader text-center" key={0}>
-              <p className="media-title p-8"> Loading .....  </p> 
+              <p className="media-title p-8"> Loading ..... </p>
             </div>
           }
           useWindow={false}
         >
-          <Item movieList={movieList} />
+          <Media mediaList={mediaList} />
         </InfiniteScroll>
       </div>
     </div>

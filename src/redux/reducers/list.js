@@ -1,6 +1,5 @@
 const initialState = {
     list: [],
-    loader: false,
     loadMore: false
    
 }
@@ -8,13 +7,13 @@ const initialState = {
 const familyReducer = (state = initialState, { type, payload }) => {
     switch (type) {
 
-        case 'GET_LIST_START': {
+        case 'GET_FIRST_LIST': {
             return {
                 ...state,  loadMore: payload
             }
         }
 
-        case 'GET_LIST': {
+        case 'GET_MORE_LIST': {
             return {
                 ...state, list:[...state.list, ...payload ],
             }
