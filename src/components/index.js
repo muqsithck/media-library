@@ -56,8 +56,8 @@ export default function Index() {
           loadMore={loadMore}
           hasMore={isMore}
           loader={
-            <div className="loader" key={0}>
-              Loading ...
+            <div className="loader text-center" key={0}>
+              <p className="media-title p-8"> Loading .....  </p> 
             </div>
           }
           useWindow={false}

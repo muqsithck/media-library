@@ -2,13 +2,13 @@
   height: 100vh;
   overflow: auto;
   padding: 6px;
-  padding-top: 2vh;
+  padding-top: 1vh;
 }
 
-.item-wrapper {
-  height: 25vh;
+.media-wrapper {
+  height: 28vh;
   min-height: 100px;
-  margin-bottom: 7vh;
+  margin-bottom: 4vh;
 }
 
 .header-height{
@@ -31,11 +31,27 @@
 }
 
 .search-box{
+  height: 30px;
   padding:8px;
   border: none;
-  background-color: #000;
-  width: 80%;
+  border-radius: 6px;
+  color: #1c1c1f;
+  width: 60%;
+  font-weight: 400;
+  font-size: 16px;
+}
 
+input:focus {
+  outline: none !important;
+    box-shadow: 0 0 10px #fff;
+}
+
+
+.ellipsis-text {
+  white-space: nowrap; 
+  width: 90%; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 
@@ -45,7 +61,17 @@
   .item-wrapper {
     height: auto;
     min-height: 100px;
-    margin-bottom: 0vh;
+    margin-bottom: 20px;
   }
 }
+
+
+@media only screen and (min-width: 992px) {
+
+  .item-wrapper {
+    height: auto ;
+  }
+
+}
+
 
