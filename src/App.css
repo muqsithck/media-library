@@ -2,12 +2,13 @@
   height: 100vh;
   overflow: auto;
   padding: 6px;
-  padding-top: 7vh;
+  padding-top: 2vh;
 }
 
 .item-wrapper {
-  height: 31vh;
-  min-height: 200px;
+  height: 25vh;
+  min-height: 100px;
+  margin-bottom: 7vh;
 }
 
 .header-height{
@@ -25,7 +26,7 @@
   color: #fff;
   font-family: 'Titillium Web', sans-serif;
   margin: 0px !important;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 22px;
 }
 
@@ -36,3 +37,15 @@
   width: 80%;
 
 }
+
+
+
+
+@media screen and (max-height: 700px) {
+  .item-wrapper {
+    height: auto;
+    min-height: 100px;
+    margin-bottom: 0vh;
+  }
+}
+

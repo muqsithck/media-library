@@ -17,7 +17,7 @@ export default function Item(props) {
               <div key={index} className="col-span-1 bg-black item-wrapper">
                 <Image
                   effect="blur"
-                  height="80%"
+                  // height="90%"
                   width="100%"
                   placeholderSrc={demo}
                   src={img}

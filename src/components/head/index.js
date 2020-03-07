@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import image from "../../assets/nav_bar.png";
-import { FaSearch, FaArrowLeft , FaWindowClose } from "react-icons/fa";
+import { MdSearch, MdClose , MdArrowBack } from "react-icons/md";
 
 function App(props) {
   const [search, searchHandler] = useState(false);
@@ -19,9 +19,9 @@ function App(props) {
       <div className=" absolute top-0 p-1 pt-2 text-gray-500 text-centre" >
         <div className="flex flex-initial justify-center  items-center bg-transparent pr-4">
           <div className="flex-initial pr-2">
-            <FaArrowLeft className="text-white" />
+            <MdArrowBack className="text-white font-semibold .text-5xl" />
           </div>
-          <div className="flex-initial pr-4">
+          <div className="flex-initial pr-6">
             <h2 className="media-category">Romantic Comedy</h2>
           </div>
 
@@ -35,13 +35,9 @@ function App(props) {
           ) : null}
           <div className="fixed right-0 p-2 pr-4" onClick={toggleSearch}>
           {search ? 
-            
-     
-            <FaWindowClose className="text-white text-2xl ml-1"  />  :
-
-            <FaSearch  className="text-white" />
+            <MdClose className="text-white text-2xl ml-1"  />  :
+            <MdSearch  className="text-white" />
           } 
-
           </div>
         </div>
       </div>
